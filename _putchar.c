@@ -20,6 +20,4 @@ int _putchar(char c)
 	if (c != BUF_FLUSH)
 		buff[++a] = c;
 	return (a);
-}
-
-	
+}	

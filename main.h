@@ -1,5 +1,5 @@
-#ifndef _SHELL_H_
-#define _SHELL_H_
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,15 +43,15 @@ typedef struct list_str
 {
 	int num;
 	char *str;
-	struct list_str *next';
+	struct list_str *next;
 } list_t;
 
 /**
- * struct pass_info - arguements to pass into a function,
- * @arg: a string containing arguements
+ * struct pass_info - arguments to pass into a function,
+ * @arg: a string containing arguments
  * @argv: an array of strings generated from arg
  * @path: a string path for current command
- * @argc: the arguement count
+ * @argc: the argument count
  * @err_num: the error code for exit
  * @line_count: the error count
  * @line_count_flag: if on count this of input
@@ -89,7 +89,7 @@ typedef struct pass_info
 } info_t;
 
 #define INFO_INIT \
-{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \ 0, 0, 0,}
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 0, 0,}
 
 /**
  * struct builtin - a builtin string and related function
@@ -100,7 +100,7 @@ typedef struct builtin
 {
 	char *type;
 	int (*func)(info_t *);
-} builtin_t
+} builtin_t;
 
 int hsh(info_t *, char **);
 int find_builtin(info_t *);
@@ -132,7 +132,7 @@ void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 int bfree(void **);
 int interactive(info_t *);
-int is delim(char, char *);
+int is_delim(char, char *);
 int isalpha(int);
 int _atoi(char *);
 int _erratoi(char *);
@@ -178,7 +178,7 @@ int is_chain(info_t *, char *, size_t *);
 void check_chain(info_t *, char  *, size_t *, size_t, size_t);
 int replace_alias(info_t *);
 int replace_vars(info_t *);
-int replace_string(cjar **, char *);
+int replace_string(char **, char *);
 
 #endif
 

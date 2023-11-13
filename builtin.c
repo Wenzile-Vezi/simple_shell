@@ -7,7 +7,7 @@
  * Rerturn: with a given exit status return exit
  * (0) if info.argv[0] != "exit"
  */
-int _myexit(info_ t *info)
+int _myexit(info_t *info)
 {
 	int exitcheck;
 
@@ -36,10 +36,10 @@ int _myexit(info_ t *info)
  */
 int _mycd(info_t *info)
 {
-	char *, *dir, buf[1024];
+	char *s, *dir, buffer[1024];
 	int chdir_ret;
 
-	s = getcwd(buf, 1024);
+	s = getcwd(buffer, 1024);
 	if (!s)
 		_puts("TODO: >>getcwd failure emsg here<<\n");
 	if (!info->argv[1])
@@ -72,8 +72,8 @@ int _mycd(info_t *info)
 	}
 	else
 	{
-		_setenv(info, "OLDPWD", _getenv(info, "PWD="));
-		_setenv(info, "PWD", getcwd(buf, 1024));
+		setenv(info, "OLDPWD", _getenv(info, "PWD="));
+		setenv(info, "PWD", getcwd(buffer, 1024));
 	}
 	return (0);
 }

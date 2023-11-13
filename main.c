@@ -21,14 +21,14 @@ int main(int ac, char **av)
 		if (fd == -1)
 		{
 			if (errno == EACCES)
-				exit(126)=;
+				exit(126);
 			if (errno == ENOENT)
 			{
 				_puts(av[0]);
 				_puts(": 0: Can't open ");
 				_puts(av[1]);
 				_eputchar('\n');
-				_eputchar(BUF_FLUSH)
+				_eputchar(BUF_FLUSH);
 					exit(127);
 			}
 			return (EXIT_FAILURE);

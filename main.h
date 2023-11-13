@@ -89,7 +89,7 @@ typedef struct pass_info
 } info_t;
 
 #define INFO_INIT \
-{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 0, 0,}
+{NULL, NULL, NULL, 0, NULL, NULL, 0, 0, 0, NULL, NULL, 0, NULL, 0, NULL, \ 0, 0, 0,}
 
 /**
  * struct builtin - a builtin string and related function
@@ -132,10 +132,10 @@ void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 int bfree(void **);
 int interactive(info_t *);
-int is_delim(char, char *);
-int isalpha(int);
+int _isdelim(char, char *);
+int _isalpha(int);
 int _atoi(char *);
-int _erratoi(char *);
+int err_atoi(char *);
 void print_error(info_t *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);

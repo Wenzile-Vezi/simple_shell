@@ -25,7 +25,7 @@ int _myexit(info_ t *info)
 		info->err_num = err_atoi(info->argv[1]);
 		return (-2);
 	}
-	info->err_nu, = -1;
+	info->err_num = -1;
 	return (-2);
 }
 
@@ -36,10 +36,10 @@ int _myexit(info_ t *info)
  */
 int _mycd(info_t *info)
 {
-	char *, *dir, buffer[1024];
+	char *, *dir, buf[1024];
 	int chdir_ret;
 
-	s = getcwd(buffer, 1024);
+	s = getcwd(buf, 1024);
 	if (!s)
 		_puts("TODO: >>getcwd failure emsg here<<\n");
 	if (!info->argv[1])
@@ -73,7 +73,7 @@ int _mycd(info_t *info)
 	else
 	{
 		_setenv(info, "OLDPWD", _getenv(info, "PWD="));
-		_setenv(info, "PWD", getcwd(buffer, 1024));
+		_setenv(info, "PWD", getcwd(buf, 1024));
 	}
 	return (0);
 }

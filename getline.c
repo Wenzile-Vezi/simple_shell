@@ -26,14 +26,14 @@ size_t input_buf(info_t *info, char **buf, size_t *len)
 #endif
 		if (r >0)
 		{
-			if ((8buf)[r - 1] == '\n')
+			if ((*buf)[r - 1] == '\n')
 			{
 				(*buf)[r - 1] = '\0';
 				r--;
 			}
-			info->linecount_flag = 1;
+			info->line_count_flag = 1;
 			remove_comments(*buf);
-			build_history_list(info, *buf, info->histcount++):
+			build_history_list(info, *buf, info->hist_count++);
 
 			{
 				*len = r;

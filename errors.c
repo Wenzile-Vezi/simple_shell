@@ -37,7 +37,7 @@ int err_atoi(char *s)
  */
 void print_error(info_t *info, char *estr)
 {
-	_puts(info->fname);
+	_puts(info->f_name);
 	_puts(": ");
 	print_d(info->line_count, STDERR_FILENO);
 	_puts(info->argv[0]);
@@ -60,7 +60,7 @@ int print_d(int intput,int fd)
 
 	if (fd == STDERR_FILENO)
 		__putchar = _eputchar;
-	if (input < 0)
+	if (intput < 0)
 	{
 		_abs_ = -input;
 		__putchar('-');
@@ -105,7 +105,7 @@ char *conv_number(long int num, int base, int flags)
 		n = num;
 		sign = '-';
 	}
-	array = flags & COV_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	array = flags & CONV_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
 

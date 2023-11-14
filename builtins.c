@@ -25,7 +25,7 @@ int unset_alias(info_t *info, char *str)
 	char *q, s;
 	int ret;
 
-	q = _strchr(str, '='0);
+	q = _strchr(str, '=');
 	if (!q)
 		return (1);
 	s= *q;
@@ -96,7 +96,7 @@ int _myalias(info_t *info)
 		while (node)
 		{
 			print_alias(node);
-			node = node->next
+			node = node->next;
 		}
 		return (0);
 	}

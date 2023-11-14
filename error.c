@@ -37,7 +37,7 @@ int _eputchar(char c)
 		i = 0;
 	}
 	if (c != BUF_FLUSH)
-		buf[I++] = c;
+		buf[i++] = c;
 	return (1);
 }
 /**
@@ -53,7 +53,7 @@ int _putsfd(char *str, int fd)
 
 	if (!str)
 		return (0);
-	whle (*str)
+	while (*str)
 	{
 		i += _putfd(*str++, fd);
 	}
